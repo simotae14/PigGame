@@ -8,3 +8,34 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 
 */
+var scores, roundScore, activePlayer;
+// punteggi
+scores = [0,0];
+// punteggio del turno
+roundScore = 0;
+// utente attivo
+activePlayer = 1;
+
+// nascondiamo il dado
+document.querySelector('.dice').style.display = 'none';
+// setto tutti i valori degli score a 0
+document.getElementById('score-0').textContent = '0';
+document.getElementById('score-1').textContent = '0';
+document.getElementById('current-0').textContent = '0';
+document.getElementById('current-1').textContent = '0';
+
+// seleziono il bottone per tirare dado
+document.querySelector('.btn-roll').addEventListener('click', function(){
+  // 1. Numero Random
+  var dice = Math.floor(Math.random() * 6) + 1;
+  // 2. Mostro il contenuto e la giusta immagine del dado
+  var diceDOM = document.querySelector('.dice');
+  diceDOM.style.display = 'block';
+  // cambio contenuto dell'attributo src del dado
+  diceDOM.src = 'dice-' + dice + '.png';
+  
+  // 3. Aggiornare il ROUND SCORE se il numero che esce nn è 1
+  
+  
+  
+});
