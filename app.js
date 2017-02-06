@@ -9,20 +9,8 @@ GAME RULES:
 
 */
 var scores, roundScore, activePlayer;
-// punteggi
-scores = [0,0];
-// punteggio del turno
-roundScore = 0;
-// utente attivo
-activePlayer = 0;
 
-// nascondiamo il dado
-document.querySelector('.dice').style.display = 'none';
-// setto tutti i valori degli score a 0
-document.getElementById('score-0').textContent = '0';
-document.getElementById('score-1').textContent = '0';
-document.getElementById('current-0').textContent = '0';
-document.getElementById('current-1').textContent = '0';
+init();
 
 // seleziono il bottone per tirare dado
 document.querySelector('.btn-roll').addEventListener('click', function(){
@@ -82,4 +70,34 @@ function nextPlayer() {
 
   // nascondo il dado
   document.querySelector(".dice").style.display = "none";
+}
+
+// creo il listener sul bottone btn-new
+document.querySelector(".btn-new").addEventListener("click", init);
+
+
+// creo una funzione init con cui inizializzo le mie var
+function init() {
+  // punteggi
+  scores = [0,0];
+  // punteggio del turno
+  roundScore = 0;
+  // utente attivo
+  activePlayer = 0;  
+  // nascondiamo il dado
+  document.querySelector('.dice').style.display = 'none';
+  // setto tutti i valori degli score a 0
+  document.getElementById('score-0').textContent = '0';
+  document.getElementById('score-1').textContent = '0';
+  document.getElementById('current-0').textContent = '0';
+  document.getElementById('current-1').textContent = '0';
+  // Resetto nomi giocatori
+  document.querySelector("#name-0").textContent = "Player 1";
+  document.querySelector("#name-1").textContent = "Player 2";
+  // rimuovo classe winner
+  document.querySelector(".player-0-panel").classList.remove("winner");
+  document.querySelector(".player-1-panel").classList.remove("winner");
+  document.querySelector(".player-0-panel").classList.remove("active");
+  document.querySelector(".player-0-panel").classList.add("active");
+  document.querySelector(".player-1-panel").classList.remove("active");
 }
